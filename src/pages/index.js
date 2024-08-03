@@ -1,9 +1,19 @@
 import { Inter } from 'next/font/google'
 import PostPreview from '../../components/blog/post-preview'
+import client from '../sanity/lib/client'
+import groq from 'groq'
+import Link from 'next/link'
+
+import dateFormatter from '../../components/random/dateFormatter'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({post}) {
+  function dateFormatter(fullDate) {
+    const date = new Date(fullDate)
+    return date.toDateString().slice(4)
+  }
+
   return (
     <div>
 
@@ -68,20 +78,27 @@ export default function Home() {
           <h2>Recent Blog Posts</h2>
           {/* link to whatever CMS I end up using. */}
           <div className='row my-4'>
-            <PostPreview title="Post Title" date="7/31/2024" summary="Summary of the post" />
+            {console.log(post.title)}
+            <PostPreview title={post.title} date={dateFormatter(post.publishedAt)} summary={post.summary} link={post.slug.current} />
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <section id='footer'>
-        <div className='container-fluid my-5'>
-          <div className='row text-center'>
-            <p>© Lucas Minter</p>
-          </div>
-        </div>
-      </section>
-    
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const post = await client.fetch(groq`*[_type == "post"] | order(_createdAt desc)[0] {
+    title,
+    author->,
+    category,
+    publishedAt,
+    summary,
+    slug
+  }`);
+  return {
+    props: {
+      post: post
+    }
+  }
 }
