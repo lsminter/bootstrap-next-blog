@@ -41,8 +41,8 @@ export const postType = {
     },
     {
       name: 'categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      type: 'string',
+      title: [{type: 'reference', to: {type: 'category'}}],
     },
     {
       name: 'publishedAt',

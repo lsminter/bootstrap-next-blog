@@ -15,7 +15,8 @@ export default function Posts ({post}) {
       {/* header */}
       <section className='container-fluid' id='header'>
         <div className='row'>
-          <h1>Header</h1>
+          <h1>All Posts</h1>
+          <p>I tend to write about whatever is on my mind and the type of tech I'm currently working on/learning.</p>
         </div>
       </section>
 

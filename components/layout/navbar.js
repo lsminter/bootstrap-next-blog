@@ -10,7 +10,7 @@ export default function NavBar () {
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarItems">
           <ul class="navbar-nav mb-2 mb-lg-0">
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link active" href="/">Home</a>
             <a class="nav-link" href="/posts">All Posts</a>
           </ul>
         </div>

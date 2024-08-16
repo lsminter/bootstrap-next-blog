@@ -2,9 +2,6 @@ import { Inter } from 'next/font/google'
 import PostPreview from '../../components/blog/post-preview'
 import client from '../sanity/lib/client'
 import groq from 'groq'
-import Link from 'next/link'
-
-import dateFormatter from '../../components/random/dateFormatter'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +12,7 @@ export default function Home({post}) {
   }
 
   return (
-    <div>
+    <div className=''>
 
       {/* Jumbotron */}
       <section id="jumbotron">
@@ -75,11 +72,15 @@ export default function Home({post}) {
       {/* Recent Blog */}
       <section id='recent-blog'>
         <div className='container my-5'>
-          <h2>Recent Blog Posts</h2>
-          {/* link to whatever CMS I end up using. */}
-          <div className='row my-4'>
-            {console.log(post.title)}
-            <PostPreview title={post.title} date={dateFormatter(post.publishedAt)} summary={post.summary} link={post.slug.current} />
+          <h2><a className='link link-hover link-underline link-underline-opacity-0 link-body-emphasis' href="/posts">Recent Blog Posts</a></h2>
+          <div className='row gy-2'>
+            {
+              post.map(posts => (
+                <div className='p-3 rounded text-bg-light col-9'>
+                  <PostPreview title={posts.title} date={dateFormatter(posts.publishedAt)} summary={posts.summary} link={posts.slug.current} />
+                </div>
+              ))
+            }
           </div>
         </div>
       </section>
@@ -88,10 +89,10 @@ export default function Home({post}) {
 }
 
 export async function getStaticProps() {
-  const post = await client.fetch(groq`*[_type == "post"] | order(_createdAt desc)[0] {
+  const post = await client.fetch(groq`*[_type == "post"] | order(_createdAt desc)[0...2] {
     title,
     author->,
-    category,
+    categories,
     publishedAt,
     summary,
     slug
