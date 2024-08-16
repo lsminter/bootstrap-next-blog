@@ -76,8 +76,9 @@ export default function Home({post}) {
           <div className='row gy-2'>
             {
               post.map(posts => (
-                <div key={posts.slug} className='p-3 rounded text-bg-light col-9'>
-                  <PostPreview title={posts.title} date={dateFormatter(posts.publishedAt)} summary={posts.summary} link={posts.slug.current} />
+                <div key={posts.slug.current} className='p-3 rounded text-bg-light col-9'>
+                  <PostPreview title={posts.title} date={dateFormatter(posts.publishedAt)} summary={posts.summary} link={posts.slug.current.current} />
+                  {console.log(posts.slug.current.current)}
                 </div>
               ))
             }
