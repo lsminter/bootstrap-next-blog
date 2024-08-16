@@ -26,7 +26,7 @@ export default function Posts ({post}) {
           {
             post.map(posts => (
               <div key={posts.slug.current} className='p-3 rounded text-bg-light col-9'>
-                <PostPreview title={posts.title} date={dateFormatter(posts.publishedAt)} summary={posts.summary} link={posts.slug.current.current} />
+                <PostPreview title={posts.title} date={dateFormatter(posts.publishedAt)} summary={posts.summary} link={posts.slug.current} />
               </div>
             ))
           }
