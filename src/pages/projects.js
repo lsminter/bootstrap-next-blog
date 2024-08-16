@@ -16,7 +16,7 @@ export default function Posts ({post}) {
       <section className='container-fluid' id='header'>
         <div className='row'>
           <h1>Major Projects</h1>
-          <p>A place where I cover the major projects I've done and what I've learned from them.</p>
+          <p>A place where I cover the major projects I&apos;ve done and what I&apos;ve learned from them.</p>
         </div>
       </section>
 
@@ -25,7 +25,7 @@ export default function Posts ({post}) {
         <div className='row gy-2'>
           {
             post.map(posts => (
-              <div className='p-3 rounded text-bg-light col-9'>
+              <div key={posts.slug} className='p-3 rounded text-bg-light col-9'>
                 <PostPreview title={posts.title} date={dateFormatter(posts.publishedAt)} summary={posts.summary} link={posts.slug.current} />
               </div>
             ))
