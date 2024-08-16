@@ -25,7 +25,7 @@ export default function Home({post}) {
               <div className='row'>
                 <a href="https://github.com/lsminter" className='col-3 icon-link icon-link-hover'>
                   <Image
-                    src='/images/icons/icons8-github.svg'
+                    src={'/images/icons/icons8-github.svg'}
                     className='bi w-75 h-75'
                     width={50}
                     height={50}
@@ -34,7 +34,7 @@ export default function Home({post}) {
                 </a>
                 <a href="https://www.linkedin.com/in/lucas-minter-67b9a097/" className='col-3 icon-link icon-link-hover'>
                   <Image
-                    src='/images/icons/icons8-linkedin.svg'
+                    src={'/images/icons/icons8-linkedin.svg'}
                     className='bi w-75 h-75'
                     width={50}
                     height={50}
@@ -43,7 +43,7 @@ export default function Home({post}) {
                 </a>
                 <a href="https://twitter.com/lucasminter" className='col-3 icon-link icon-link-hover'>
                   <Image
-                    src='/images/icons/icons8-twitter.svg'
+                    src={'/images/icons/icons8-twitter.svg'}
                     className='bi w-75 h-75'
                     width={50}
                     height={50}
@@ -52,7 +52,7 @@ export default function Home({post}) {
                 </a>
                 <a href="https://egghead.io/q/resources-by-lucas-minter" className='col-3 icon-link icon-link-hover'>
                   <Image
-                    src='/images/icons/egghead.svg'
+                    src={'/images/icons/egghead.svg'}
                     className='bi w-75 h-75'
                     width={50}
                     height={50}
