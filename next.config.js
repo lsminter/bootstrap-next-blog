@@ -5,6 +5,10 @@ const nextConfig = {
 
 module.exports = {
   nextConfig,
+  images: {
+    loader: 'akamai',
+    path: ''
+  },
   eslint: {
     ignoreDuringBuilds: true,
   }
