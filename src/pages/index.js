@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import PostPreview from '../../components/blog/post-preview'
 import client from '../sanity/lib/client'
 import groq from 'groq'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,34 +24,38 @@ export default function Home({post}) {
               <p>Front End Web Development</p>
               <div className='row'>
                 <a href="https://github.com/lsminter" className='col-3 icon-link icon-link-hover'>
-                  <img
+                  <Image
                     src='/images/icons/icons8-github.svg'
-                    className='bi'
-                    style={{width: 50, height: 50}}
+                    className='bi w-75 h-75'
+                    width={50}
+                    height={50}
                     alt="small icon for github.com"
                   />
                 </a>
                 <a href="https://www.linkedin.com/in/lucas-minter-67b9a097/" className='col-3 icon-link icon-link-hover'>
-                  <img
+                  <Image
                     src='/images/icons/icons8-linkedin.svg'
-                    className='bi'
-                    style={{width: 50, height: 50}}
+                    className='bi w-75 h-75'
+                    width={50}
+                    height={50}
                     alt="small icon for linkedin.com"
                   />
                 </a>
                 <a href="https://twitter.com/lucasminter" className='col-3 icon-link icon-link-hover'>
-                  <img
+                  <Image
                     src='/images/icons/icons8-twitter.svg'
-                    className='bi'
-                    style={{width: 50, height: 50}}
+                    className='bi w-75 h-75'
+                    width={50}
+                    height={50}
                     alt="small icon for twitter.com"
                   />
                 </a>
                 <a href="https://egghead.io/q/resources-by-lucas-minter" className='col-3 icon-link icon-link-hover'>
-                  <img
+                  <Image
                     src='/images/icons/egghead.svg'
-                    className='bi'
-                    style={{width: 50, height: 50}}
+                    className='bi w-75 h-75'
+                    width={50}
+                    height={50}
                     alt="small icon for egghead.io"
                   />
                 </a>
