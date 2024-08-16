@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/styles.css'
+import { Analytics } from '@vercel/analytics/react';
 
 import { useEffect } from 'react';
 
@@ -13,6 +14,7 @@ export default function App({ Component, pageProps }) {
   return <div>
     <NavBar />
     <Component {...pageProps} />
+    <Analytics />
     <Footer />
   </div>
 }
