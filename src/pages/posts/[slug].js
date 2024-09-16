@@ -1,11 +1,21 @@
 import client from '../../sanity/lib/client.js';
 import Link from 'next/link'
 import groq from 'groq'
+import { useEffect } from 'react';
 
 import {marked} from 'marked'
+import Markdown from 'marked-react';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import hljs from 'highlight.js/lib/common';
+import 'highlight.js/styles/atom-one-dark.css';
 
 export default function Blog({ post }) {
   const html = marked(post?.body)
+
+  useEffect(() => {
+    hljs.highlightAll();      
+  }, [])
+
   return (
     <div className='container my-3'>
       <h1 className='text-center'>
@@ -17,7 +27,9 @@ export default function Blog({ post }) {
           &larr; go back to all posts 
         </Link>
       </p>
-      <article className="overflow-hidden" dangerouslySetInnerHTML={{__html: html}} />
+      <div className="row d-flex justify-content-center">
+        <article className="overflow-hidden col-12 col-md-10" dangerouslySetInnerHTML={{__html: html}} />
+      </div>
     </div>
   )
 }
