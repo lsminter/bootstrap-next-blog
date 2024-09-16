@@ -4,8 +4,6 @@ import groq from 'groq'
 import { useEffect } from 'react';
 
 import {marked} from 'marked'
-import Markdown from 'marked-react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
 import hljs from 'highlight.js/lib/common';
 import 'highlight.js/styles/atom-one-dark.css';
 
